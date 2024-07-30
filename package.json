@@ -5,6 +5,7 @@
   "main": "index.umd.js",
   "module": "./dist/index.es.js",
   "types": "./dist/api/index.d.ts",
+  "description": "带有模拟接口的前端请求库",
   "files": [
     "dist"
   ],
