@@ -6,7 +6,7 @@
 
 ## 安装依赖
 ```ts
-    pnpm i @stellaround/request -D
+    pnpm i @stellaround/request
 ```
 
 Taro config文件配置
