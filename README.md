@@ -109,4 +109,4 @@ import '~/utils/request.ts'
 
 # License
 
-Copyright (c) 2024-present 
+Copyright (c) 2024-present [dsq1109511798](https://github.com/dsq1109511798)
