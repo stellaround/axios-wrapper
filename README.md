@@ -13,16 +13,18 @@
 ```ts
     // vite.config.ts
     import { defineConfig } from 'vite';
-    import vue from '@vitejs/plugin-vue';
+    import AutoImport from 'unplugin-auto-import/vite';
     export default defineConfig({
-        //...
-        AutoImport({
-            imports: [
-                {
-                '@stellaround/request': ['publicRequests','useGet','usePost','usePut','useDelete','publicMock','mockGet','mockPost','mockPut','mockDelete'],
-                },
-            ],
-        }),
+        plugins: [
+            //...
+            AutoImport({
+                imports: [
+                    {
+                    '@stellaround/request': ['publicRequests','useGet','usePost','usePut','useDelete','publicMock','mockGet','mockPost','mockPut','mockDelete'],
+                    },
+                ],
+            }),
+        ]
     });
 ```
 
