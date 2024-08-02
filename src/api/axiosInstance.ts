@@ -1,5 +1,5 @@
 import axios, { type AxiosRequestConfig, type AxiosResponse } from 'axios';
-
+import {instanceMock} from './mockInstance'
 
 export interface ResponseBody<T = any> {
   code: number;
@@ -35,8 +35,8 @@ export const publicRequests = (createData:any,requestHandler?:any,responseHandle
   }
 }
 
-export const useGet = <R = any, T = any>(url: string, params?: T, config?: AxiosRequestConfig): Promise<R> => {
-  return instance.request<any, R>({
+export const useGet = <R = any, T = any>(url: string, params?: T, isMock= false, config?: AxiosRequestConfig ): Promise<R> => {
+  return ( isMock? instanceMock: instance).request<any, R>({
     url,
     params,
     method: 'GET',
@@ -44,8 +44,8 @@ export const useGet = <R = any, T = any>(url: string, params?: T, config?: Axios
   });
 };
 
-export const usePost = <R = any, T = any>(url: string, data?: T, config?: AxiosRequestConfig): Promise<R> => {
-  return instance.request<any, R>({
+export const usePost = <R = any, T = any>(url: string, data?: T, isMock= false, config?: AxiosRequestConfig ): Promise<R> => {
+  return ( isMock? instanceMock: instance).request<any, R>({
     url,
     data,
     method: 'POST',
@@ -53,8 +53,8 @@ export const usePost = <R = any, T = any>(url: string, data?: T, config?: AxiosR
   });
 };
 
-export const usePut = <R = any, T = any>(url: string, data?: T, config?: AxiosRequestConfig): Promise<ResponseBody<R>> => {
-  return instance.request({
+export const usePut = <R = any, T = any>(url: string, data?: T, isMock= false, config?: AxiosRequestConfig ): Promise<ResponseBody<R>> => {
+  return ( isMock? instanceMock: instance).request({
     url, 
     data,
     method: 'PUT',
@@ -62,8 +62,8 @@ export const usePut = <R = any, T = any>(url: string, data?: T, config?: AxiosRe
   });
 };
 
-export const useDelete = <R = any, T = any>(url: string, data?: T, config?: AxiosRequestConfig): Promise<ResponseBody<R>> => {
-  return instance.request({
+export const useDelete = <R = any, T = any>(url: string, data?: T, isMock= false, config?: AxiosRequestConfig ): Promise<ResponseBody<R>> => {
+  return ( isMock? instanceMock: instance).request({
     url,
     data,
     method: 'DELETE',

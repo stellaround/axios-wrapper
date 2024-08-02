@@ -8,16 +8,16 @@ export interface ResponseBody<T = any> {
   msg: string;
 }
 
-const instance = axios.create({
+export var instanceMock = axios.create({
   baseURL: '/',
   timeout: 60000
 })
 
-var mock = new MockAdapter(instance)
+ var mock = new MockAdapter(instanceMock)
 
 export const publicMock = (createData:any)=>{
-  const instance = axios.create(createData);
-  mock = new MockAdapter(instance)
+  instanceMock = axios.create(createData);
+  mock = new MockAdapter(instanceMock)
 }
 
 export const mockGet =(url: string, fun: any) => {
