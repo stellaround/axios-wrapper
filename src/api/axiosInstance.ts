@@ -70,3 +70,12 @@ export const useDelete = <R = any, T = any>(url: string, data?: T, isMock= false
     ...config,
   });
 };
+
+export const usePatch = <R = any, T = any>(url: string, data?: T, isMock= false, config?: AxiosRequestConfig ): Promise<ResponseBody<R>> => {
+  return ( isMock? instanceMock: instance).request({
+    url,
+    data,
+    method: 'patch',
+    ...config,
+  });
+};
